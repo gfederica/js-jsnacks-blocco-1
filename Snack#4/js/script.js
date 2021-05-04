@@ -5,17 +5,22 @@
 var nome = ["Federica", "Francesco", "Roberta", "Luisa", "Paolo", "Gianni", "Claudia", "Teodoro"];
 
 // scriviamo un array con i cognomi
-var cognome = ["Giudice", "Zago", "Antoni", "DiNatale", "Bertino", "Bianchi", "Incardona", "Brafa", "DiMartino", "Neri"];
+var cognome = ["Giudice", "Zago", "Antoni", "Natale", "Bertino", "Bianchi", "Incardona", "Brafa", "Martino", "Neri"];
 
  
 // definisco la funzione che mi genera una volta il nome e cognome
-function invitatoRandom (nome, cognome) {
-    var nomeRandom = nome[Math.floor(Math.random() * nome.length)];
-    var cognomeRandom = cognome[Math.floor(Math.random() * cognome.length)];
-    return nomeRandom + " " + cognomeRandom;
+function elementoRandom (x, y) {
+    var xRandom = x[Math.floor(Math.random() * x.length)];
+    var yRandom = y[Math.floor(Math.random() * y.length)];
+    return xRandom + " " + yRandom;
 }
 
+// variabile del singolo invitato con la posizione nell'html
+var invitato = document.getElementById("invitati");
 
-// chiamo la funzione
-var invitatoRandom = invitatoRandom(nome, cognome);
-console.log(invitatoRandom);
+// chiamo la funzione dentro un ciclo for per 10 volte
+for (var i = 0; i < 10; i++) {
+    invitatoRandom = elementoRandom(nome, cognome);
+    console.log(invitatoRandom);
+    invitato.innerHTML += "<li>" + invitatoRandom +"</li>";
+}
